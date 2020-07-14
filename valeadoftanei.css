@@ -9,7 +9,7 @@
   top: 0;
 }
 
-/* Obiective Turistice */
+/* Font */
 div > h2 {
   font-family: "Baloo Da 2", cursive;
 }
@@ -54,6 +54,22 @@ div > ul {
   color: #d31c1c;
 }
 #button_cazare:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_timp {
+  color: #d31c1c;
+}
+#button_timp:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_sanatate {
+  color: #d31c1c;
+}
+#button_sanatate:hover {
   cursor: pointer;
   text-decoration: underline;
   color: rgba(0, 0, 0, 0.8);

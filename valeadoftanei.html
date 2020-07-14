@@ -73,8 +73,8 @@
   <body>
     <div class="detalii">
       <div id="map" class="map" tabindex="1"></div>
-      <!-- <i class="fas fa-arrow-circle-down buton_scroll" id="buton_scroll"></i> -->
       <div class="descriere" id="descriere">
+        <!-- Cuvant inainte -->
         <div>
           <h2>
             <a class="cuv_inainte" href="#cuvant_inaite"
@@ -82,6 +82,10 @@
             >
           </h2>
         </div>
+        <br />
+        <hr />
+        <br />
+        <!-- Ob turistice -->
         <div>
           <h2 class="ob_turistice" id="button_obiective">
             Obiective turistice și istorice
@@ -111,6 +115,8 @@
                     src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
                   />
                 </div>
+                <br />
+                <hr />
                 <div class="description-container">
                   <h3>Monument Poiana</h3>
                   <p>
@@ -121,9 +127,15 @@
                 </div>
               </div>
             </li>
-            <a href="pagina" class="btn btn-secondary">Mai multe</a>
+            <a href="ob_valeadoftanei.html" class="btn btn-secondary"
+              >Mai multe</a
+            >
           </ul>
         </div>
+        <br />
+        <hr />
+        <br />
+        <!-- Cazare si masa -->
         <div>
           <h2 id="button_cazare">
             Cazare și masă
@@ -163,10 +175,111 @@
                 </div>
               </div>
             </li>
-            <a href="pagina" class="btn btn-secondary">Mai multe</a>
+            <a href="cazare_valeadoftanei.html" class="btn btn-secondary"
+              >Mai multe</a
+            >
           </ul>
         </div>
+        <br />
         <hr />
+        <br />
+        <!-- Timp liber -->
+        <div>
+          <h2 id="button_timp">
+            Timp liber
+          </h2>
+          <ul class="lista-timp notShow">
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>
+                    Poiana Câmpina is a commune in Prahova County, Muntenia,
+                    Romania. It is composed of four villages: Bobolia, Pietrișu,
+                    Poiana Câmpina and Răgman.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>
+                    Poiana Câmpina is a commune in Prahova County, Muntenia,
+                    Romania. It is composed of four villages: Bobolia, Pietrișu,
+                    Poiana Câmpina and Răgman.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <a href="timp_valeadoftanei.html" class="btn btn-secondary"
+              >Mai multe</a
+            >
+          </ul>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <!-- Sanatate -->
+        <div>
+          <h2 id="button_sanatate">
+            Sănătate
+          </h2>
+          <ul class="lista-sanatate notShow">
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>
+                    Poiana Câmpina is a commune in Prahova County, Muntenia,
+                    Romania. It is composed of four villages: Bobolia, Pietrișu,
+                    Poiana Câmpina and Răgman.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>
+                    Poiana Câmpina is a commune in Prahova County, Muntenia,
+                    Romania. It is composed of four villages: Bobolia, Pietrișu,
+                    Poiana Câmpina and Răgman.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <a href="sanatate_valeadoftanei.html" class="btn btn-secondary"
+              >Mai multe</a
+            >
+          </ul>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <!-- Cuvantul -->
         <p id="cuvant_inaite">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nam
           animi, accusamus rem quod commodi cumque nisi architecto
@@ -271,6 +384,20 @@
         .addEventListener("click", function () {
           document
             .getElementsByClassName("lista-cazare")[0]
+            .classList.toggle("notShow");
+        });
+      document
+        .getElementById("button_timp")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("lista-timp")[0]
+            .classList.toggle("notShow");
+        });
+      document
+        .getElementById("button_sanatate")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("lista-sanatate")[0]
             .classList.toggle("notShow");
         });
     </script>
