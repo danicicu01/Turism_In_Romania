@@ -234,10 +234,7 @@
         </p>
 
         <a href="#">
-          <i
-            class="fas fa-arrow-circle-up buton_scroll testGit"
-            id="buton_scroll"
-          ></i
+          <i class="fas fa-arrow-circle-up buton_scroll" id="buton_scroll"></i
         ></a>
       </div>
     </div>
@@ -256,20 +253,6 @@
       });
     </script>
     <script>
-      const buton = document.getElementById("buton_scroll");
-      buton.addEventListener("click", function () {
-        document
-          .getElementById("descriere")
-          .scrollIntoView({ block: "end", behavior: "smooth" });
-        buton.style.display = "none";
-      });
-      window.addEventListener("scroll", function () {
-        if (scrollY <= 100) {
-          buton.style.display = "block";
-        } else {
-          buton.style.display = "none";
-        }
-      });
       document
         .getElementById("button_obiective")
         .addEventListener("click", function () {
