@@ -26,6 +26,10 @@ a:hover {
   margin-bottom: 1em;
   animation: arata 1000;
 }
+div > ul {
+  display: flex;
+  flex-flow: column;
+}
 .image-container > img {
   height: 200px;
   height: 177px;
@@ -35,13 +39,24 @@ a:hover {
   padding-left: 20px;
   padding-top: 0.9em;
 }
+.ob_turistice {
+  color: #d31c1c;
+}
+.cuv_inainte {
+  color: #d31c1c;
+}
 #button_obiective:hover {
   cursor: pointer;
   text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_cazare {
+  color: #d31c1c;
 }
 #button_cazare:hover {
   cursor: pointer;
   text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
 }
 .notShow {
   display: none;
