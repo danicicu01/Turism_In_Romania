@@ -1,0 +1,59 @@
+/* *{
+    border:1px solid black;
+} */
+* {
+  color: rgba(0, 0, 0, 0.8);
+}
+.map {
+  position: sticky;
+  top: 0;
+}
+
+/* Obiective Turistice */
+div > h2 {
+  font-family: "Baloo Da 2", cursive;
+}
+a,
+a:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.item-container {
+  height: 25vh;
+  display: flex;
+  box-shadow: 3px 5px 1px #ccc;
+  border-radius: 20px;
+  background-color: #f4f4f4;
+  margin-bottom: 1em;
+  animation: arata 1000;
+}
+.image-container > img {
+  height: 200px;
+  height: 177px;
+  padding: 1em;
+}
+.description-container {
+  padding-left: 20px;
+  padding-top: 0.9em;
+}
+#button_obiective:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+#button_cazare:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.notShow {
+  display: none;
+  opacity: 0%;
+  animation: arata 1000;
+}
+
+@keyframes arata {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}

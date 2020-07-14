@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      .descriere {
+        margin-top: 100px;
+        margin-left: 15px;
+        width: 60%;
+      }
+      .detalii {
+        margin: 0;
+        width: 95vw;
+        display: flex;
+      }
+      .map {
+        height: 100vh;
+        width: 30%;
+      }
+      .buton_scroll {
+        color: rgb(86, 165, 194);
+        font-size: 3.5em;
+        position: relative;
+        bottom: 0;
+        left: 50%;
+        cursor: pointer;
+        margin-bottom: 0.2em;
+      }
+      ul {
+        list-style-type: none;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+    <title>TURIST IN ROMANIA</title>
+    <link rel="stylesheet" href="valeadoftanei.css" />
+  </head>
+
+  <body>
+    <div class="detalii">
+      <div id="map" class="map" tabindex="1"></div>
+      <!-- <i class="fas fa-arrow-circle-down buton_scroll" id="buton_scroll"></i> -->
+      <div class="descriere" id="descriere">
+        <div>
+          <h2><a href="#cuvant_inaite">Cuvant Inaite</a></h2>
+        </div>
+        <div>
+          <h2 id="button_obiective">
+            Obiective turistice si istorice
+          </h2>
+          <ul class="lista-obiective notShow">
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>
+                    Poiana Câmpina is a commune in Prahova County, Muntenia,
+                    Romania. It is composed of four villages: Bobolia, Pietrișu,
+                    Poiana Câmpina and Răgman.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>
+                    Poiana Câmpina is a commune in Prahova County, Muntenia,
+                    Romania. It is composed of four villages: Bobolia, Pietrișu,
+                    Poiana Câmpina and Răgman.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 id="button_cazare">
+            Cazare si masa
+          </h2>
+          <ul class="lista-cazare notShow">
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>
+                    Poiana Câmpina is a commune in Prahova County, Muntenia,
+                    Romania. It is composed of four villages: Bobolia, Pietrișu,
+                    Poiana Câmpina and Răgman.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>
+                    Poiana Câmpina is a commune in Prahova County, Muntenia,
+                    Romania. It is composed of four villages: Bobolia, Pietrișu,
+                    Poiana Câmpina and Răgman.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <p id="cuvant_inaite">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nam
+          animi, accusamus rem quod commodi cumque nisi architecto
+          exercitationem repellat obcaecati vitae libero magni labore laborum
+          inventore perspiciatis? Corporis ipsam quaerat culpa odio pariatur
+          adipisci quo, perspiciatis nisi tempora repellendus at non molestias
+          temporibus saepe, provident inventore nesciunt dolorem omnis alias
+          nihil est? Dolorum ad obcaecati, reprehenderit quas dignissimos
+          consectetur. Ipsam aspernatur id, temporibus provident esse saepe
+          suscipit cupiditate sed nisi quidem repellat nobis quam distinctio,
+          pariatur error vitae voluptates iste a. Quod necessitatibus eligendi
+          repellat, harum dicta nobis quia fugiat debitis fugit consequatur.
+          Velit fuga cum tempora voluptate harum quo, hic consequuntur, maiores
+          provident nemo quaerat placeat autem? Ea eveniet aliquam sint
+          repellendus expedita quisquam illum alias, beatae cupiditate aliquid
+          sit asperiores maxime suscipit corporis repudiandae laborum similique
+          voluptates vitae! Earum blanditiis eligendi dignissimos officiis natus
+          doloremque aliquam possimus iste totam temporibus excepturi quis ipsa
+          id quasi impedit voluptatibus, debitis quae maiores, adipisci
+          asperiores corporis mollitia est! Quod provident eum perspiciatis
+          molestiae ipsam, vitae aliquid unde, quas, in ad dolore natus suscipit
+          alias! Expedita nostrum cumque accusamus? Quos, ab. Perferendis
+          quisquam, ab quasi alias id, libero totam impedit natus eos asperiores
+          iure excepturi praesentium debitis dicta magni tempora veniam
+          temporibus, voluptatum iusto! Consequuntur iusto ducimus eum, sit quae
+          neque accusantium sapiente iste, at accusamus eligendi natus repellat
+          reprehenderit voluptate odit enim nesciunt vitae ex minus dignissimos
+          vel non. Et repellat voluptatum asperiores deserunt ratione
+          perspiciatis qui? Quibusdam veritatis sit reprehenderit dignissimos
+          nihil rem earum mollitia, illo veniam facere enim neque suscipit!
+          Vitae incidunt fugiat voluptatibus provident, ipsum vel ut cumque iste
+          nemo eligendi eius facere, ratione est doloribus exercitationem
+          molestias quisquam et nesciunt dignissimos sunt beatae animi
+          distinctio! Fugiat natus possimus nobis voluptate ipsam rem sapiente
+          est saepe aliquam unde, iste id sunt laboriosam provident debitis
+          nulla eaque repellendus deserunt eum. Culpa nisi reiciendis qui sunt
+          doloremque, eius maiores minima sequi aliquid maxime labore, itaque
+          atque temporibus libero! Repudiandae dolor fuga, nisi error, debitis
+          recusandae quam amet dolore iure, non voluptates! Cupiditate natus
+          corrupti maxime sapiente ad deleniti quisquam totam a nisi pariatur,
+          facere optio magnam sint repellat vero sunt voluptas nemo laboriosam?
+          Modi velit laboriosam quisquam. Quis inventore beatae ullam cum
+          laboriosam iusto architecto perferendis nam fugiat eligendi earum ea
+          dolorem eum, vel officiis, quo perspiciatis aut similique itaque
+          maxime ab autem a tempore dicta? Quibusdam molestiae odit culpa.
+          Tempore quaerat omnis quasi sed. Nam veniam, accusantium cupiditate
+          nulla enim consequatur voluptates provident consectetur quae placeat
+          repellat, adipisci labore sunt dicta quos odio? Impedit quo nesciunt
+          laudantium vero est esse suscipit nobis obcaecati? Hic officiis nemo
+          voluptatum ad, quos est voluptates nisi vel placeat incidunt. Magnam,
+          debitis. Recusandae tempore non officiis! Veniam quaerat iusto
+          officiis vel accusantium laboriosam. Recusandae facilis repellat alias
+          at? Laborum soluta asperiores cumque eaque ea ipsa perferendis odit
+          placeat doloremque provident doloribus ipsum assumenda, dolore
+          expedita quos omnis suscipit dolorum esse facere modi quibusdam
+          voluptates dignissimos! Necessitatibus qui nobis accusantium. Soluta
+          sunt necessitatibus maxime voluptates debitis magnam numquam provident
+          aut rerum dignissimos nostrum magni ab quia iste veniam explicabo
+          beatae nihil officia porro blanditiis, deleniti illum praesentium.
+          Voluptatem unde blanditiis, mollitia repellendus fuga nemo! Voluptates
+          veniam odio numquam iusto delectus quo, ducimus consectetur quibusdam
+          quasi vitae aperiam, fugiat esse cumque, voluptatum temporibus.
+          Officiis alias cupiditate magni mollitia impedit explicabo atque
+          repellat, odio sapiente? Sed in error ratione rerum placeat
+          reprehenderit odit eveniet aliquam aut ab neque itaque aspernatur,
+          cupiditate exercitationem veritatis ducimus dolores? Quis tempora
+          laudantium, illum at, necessitatibus omnis sunt repellendus error
+          nesciunt eum illo fuga ipsum repellat consequuntur eligendi ut qui
+          nemo, atque accusamus autem eaque esse optio rem! Magnam, qui.
+          Repellat?
+        </p>
+
+        <a href="#">
+          <i class="fas fa-arrow-circle-up buton_scroll" id="buton_scroll"></i
+        ></a>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: "map",
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM(),
+          }),
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([25.73, 45.237]),
+          zoom: 11.3,
+        }),
+      });
+    </script>
+    <script>
+      const buton = document.getElementById("buton_scroll");
+      buton.addEventListener("click", function () {
+        document
+          .getElementById("descriere")
+          .scrollIntoView({ block: "end", behavior: "smooth" });
+        buton.style.display = "none";
+      });
+      window.addEventListener("scroll", function () {
+        if (scrollY <= 100) {
+          buton.style.display = "block";
+        } else {
+          buton.style.display = "none";
+        }
+      });
+      document
+        .getElementById("button_obiective")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("lista-obiective")[0]
+            .classList.toggle("notShow");
+        });
+      document
+        .getElementById("button_cazare")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("lista-cazare")[0]
+            .classList.toggle("notShow");
+        });
+    </script>
+  </body>
+</html>
