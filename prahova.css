@@ -1,0 +1,199 @@
+/* *{
+    border:1px solid black;
+} */
+* {
+  color: rgba(0, 0, 0, 0.8);
+}
+.map {
+  position: sticky;
+  top: 0;
+}
+
+/* Font */
+div > h2 {
+  font-family: "Baloo Da 2", cursive;
+}
+a,
+a:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+}
+.item-container {
+  height: 25vh;
+  display: flex;
+  box-shadow: 3px 5px 1px #ccc;
+  border-radius: 20px;
+  background-color: #f4f4f4;
+  margin-bottom: 1em;
+  animation: arata 1000;
+}
+div > ul {
+  display: flex;
+  flex-flow: column;
+}
+.image-container > img {
+  height: 177px;
+  padding: 1em;
+}
+.description-container {
+  padding-left: 20px;
+  padding-top: 0.9em;
+}
+.ob_turistice {
+  color: #d31c1c;
+}
+.cuv_inainte {
+  color: #d31c1c;
+}
+#button_obiective:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_cazare {
+  color: #d31c1c;
+}
+#button_cazare:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_service {
+  color: #d31c1c;
+}
+#button_service:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_sanatate {
+  color: #d31c1c;
+}
+#button_sanatate:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+#button_despre_ploiesti {
+  color: #d31c1c;
+}
+#button_despre_ploiesti:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_despre_brebu {
+  color: #d31c1c;
+}
+#button_despre_brebu:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_despre_campina {
+  color: #d31c1c;
+}
+#button_despre_campina:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_despre_cornu {
+  color: #d31c1c;
+}
+#button_despre_cornu:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_despre_poianacampina {
+  color: #d31c1c;
+}
+#button_despre_poianacampina:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_despre_telega {
+  color: #d31c1c;
+}
+#button_despre_telega:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+#button_despre_valeadoftanei {
+  color: #d31c1c;
+}
+#button_despre_valeadoftanei:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
+.notShow {
+  display: none;
+  opacity: 0%;
+  animation: arata 1000;
+}
+.despre_localitati_ph {
+  font-family: "Baloo Da 2", cursive;
+}
+
+p#text_descriptiv > p {
+  text-indent: 2em;
+}
+
+#buton_scroll:hover {
+  color: #0280ac;
+}
+
+.imagini_ploiesti {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+.imagini_brebu {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+.imagini_campina {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+.imagini_cornu {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+.imagini_poianacampina {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+.imagini_telega {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+.imagini_valeadoftanei {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+@keyframes arata {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .map {
+    display: none;
+  }
+}

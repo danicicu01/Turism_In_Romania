@@ -1,19 +1,21 @@
-body{
-  background-image: url("turist.jpg");
+body {
+  background-image: url("IMG_5181.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-y: 30%;
 }
-.box{
+.box {
   text-align: center;
   width: 1000px;
-  background: #FDE9E5;
-  background-color: rgba(255,255,255,0.5);
-  margin-left: 300px;
-  margin-top: -30px;
+  background: #fde9e5;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-left: auto;
+  margin-top: auto;
+  margin-right: auto;
   border: 5px;
   padding: 40px;
 }
-#fade{
+#fade {
   animation: fadeIn ease 4s;
   -webkit-animation: fadeIn ease 4s;
   -moz-animation: fadeIn ease 4s;
@@ -22,53 +24,92 @@ body{
 }
 @keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:1;
+    opacity: 1;
   }
 }
 
 @-moz-keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:1;
+    opacity: 1;
   }
 }
 
 @-webkit-keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:1;
+    opacity: 1;
   }
 }
 
 @-o-keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:1;
+    opacity: 1;
   }
 }
 
 @-ms-keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:1;
-}
+    opacity: 1;
+  }
 }
 
-h1{
+h1 {
   color: black;
   font-style: italic;
 }
-h3{
+h3 {
   color: #000000;
+}
+@media only screen and (max-width:1300px){
+  body{
+    width: auto;
+  }
+
+}
+
+@media only screen and (max-width:600px){
+  .box{
+    width: auto;
+  }
+  .h1, h1{
+    font-size: 1rem;
+  }
+  .h3, h3{
+    font-size: 0.80rem;
+  }
+  .h5, h5{
+    font-size: 0.70rem;
+  }
+  .btn{
+    font-size: 0.55rem;
+  }
+  footer{
+    width: auto;
+  }
+  .mijloace{
+    font-size: 0.8rem;
+  }
+  .mail{
+    font-size: 0.8rem;
+  }
+  .tlf{
+    font-size: 0.8rem;
+  }
+  .saapari{
+    font-size: 1rem;
+  }
 }

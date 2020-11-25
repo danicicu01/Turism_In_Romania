@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      .descriere {
+        margin-top: 100px;
+        margin-left: 15px;
+        width: 60%;
+      }
+      .detalii {
+        margin: 0;
+        width: 95vw;
+        display: flex;
+      }
+      .map {
+        height: 100vh;
+        width: 30%;
+      }
+      .buton_scroll {
+        color: rgb(86, 165, 194);
+        font-size: 3.5em;
+        position: relative;
+        bottom: 0;
+        left: 50%;
+        cursor: pointer;
+        margin-bottom: 0.2em;
+      }
+      ul {
+        list-style-type: none;
+      }
+      .description-container{
+        font-size: 15px;
+      }
+      .adresa{
+        margin-left: 15px;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+    <title>Turism in Romania</title>
+    <link rel="stylesheet" href="prahova.css" />
+  </head>
+
+  <body>
+    <div class="detalii">
+      <div id="map" class="map" tabindex="1"></div>
+      <div class="descriere" id="descriere">
+        <!-- Incadrare geografica -->
+        <div>
+          <h2>
+            <a class="cuv_inainte" href="#ph_incadrare_geografica"
+              >Incadrarea geografica a judetului</a
+            >
+          </h2>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <!-- Ob turistice -->
+        <div>
+          <h2 class="ob_turistice" id="button_obiective">
+            Obiective turistice si istorice, agrement
+          </h2>
+          <ul class="lista-obiective notShow">
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>text</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <br />
+                <hr />
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>text</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <!-- Cazare si masa -->
+        <div>
+          <h2 id="button_cazare">Cazare si masa</h2>
+          <ul class="lista-cazare notShow">
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="Imagini/Prahova/Cazare si Masa/Cabana Dor de Munte/CabanaDorDeMunte_1.JPG"
+                  />
+                </div>
+                <div class="description-container">
+                  <a href="Dedicate/Prahova/Cazare si Masa/Cabana Dor de Munte/cabanadordemunte.html"><h3>Cabana Dor de Munte</h3></a>
+                  <p style="margin-top: 3.8em;"><b>Date contact</b>: tel. 0720491196</p>
+                  <p><b>Adresa</b>: Valea Doftanei, sat Tesila, Fundatura Zimbrului, nr. 753</p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="Imagini/Prahova/Cazare si Masa/Casa Tineretului/CasaTineretului_1.JPG"
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Casa Tineretului <div style="color: yellow; display: inline;">*</div></h3>
+                  <p style="margin-top: 3.8em;"><b>Date contact</b>: tel. 0244334540</p>
+                  <p><b>Adresa</b>: Campina, Bulevardul Nicolae Balcescu, nr. 50</p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="Imagini/Prahova/Cazare si Masa/Pensiunea Lis House/Pensiunea Lis House_1.jpg"
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Pensiunea Lis House</h3>
+                  <p style="margin-top: 3.8em;"><b>Date contact</b>: tel. 0722673309</p>
+                  <p><b>Adresa</b>: Breaza, Strada Morii nr.7C</p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="Imagini/Prahova/Cazare si Masa/Vila Antonia/VilaAntonia_1.JPG"
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Vila Antonia</h3>
+                  <p style="margin-top: 3.8em;"><b>Date contact</b>: tel. 0721311835 sau 0734079892</p>
+                  <p><b>Adresa</b>: Valea Doftanei, sat Tesila, str. Schiorilor, nr. 721</p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="Imagini/Prahova/Cazare si Masa/Vila Karina/VilaKarina_1.JPG"
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Vila Karina <div style="color: yellow; display: inline;">***</div></h3>
+                  <p style="margin-top: 3.8em;"><b>Date contact</b>: tel. 0787820345 sau email  plesamarius@yahoo.com</p>
+                  <p><b>Adresa</b>: Valea Doftanei, sat Tesila, str. Schiorilor, nr. 699</p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="Imagini/Prahova/Cazare si Masa/Vila Stefandra/Stefandra_1.jpg"
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Vila Stefandra</h3>
+                  <p style="margin-top: 3.8em;"><b>Date contact</b>: tel. 0729547116</p>
+                  <p><b>Adresa</b>: Breaza, str. Republicii, nr. 248C</p>
+                </div>
+              </div>
+            </li>
+           
+          </ul>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <!-- Service, vulcanizare, benzinarie -->
+        <div>
+          <h2 id="button_service">Service, vulcanizare, benzinarie</h2>
+          <ul class="lista-service notShow">
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="IMG_5196.jpg"
+                  /><br>
+                  <p class="adresa">adresa: <a href="#">Strada Street, nr.60</a></p>
+                </div>
+                <div class="description-container">
+                  <h3><a href="#nume">Nume</a></h3>
+                  <p>descriere</p>
+                  <br><br><br><br>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>text</p>
+                </div>
+              </div>
+            </li>
+            <a href="service_prahova.html" class="btn btn-secondary"
+              >Mai multe</a
+            >
+          </ul>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <!-- Sanatate -->
+        <div>
+          <h2 id="button_sanatate">Sanatate</h2>
+          <ul class="lista-sanatate notShow">
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>text</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-container">
+                <div class="image-container">
+                  <img
+                    src="https://r-cf.bstatic.com/xdata/images/hotel/square600/17062031.webp?k=7e248c55749016f295fd68aeb566a90be57d0c0848b170afd526cd1c280c6e08&o="
+                  />
+                </div>
+                <div class="description-container">
+                  <h3>Monument Poiana</h3>
+                  <p>text</p>
+                </div>
+              </div>
+            </li>
+            <a href="sanatate_prahova.html" class="btn btn-secondary"
+              >Mai multe</a
+            >
+          </ul>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <!-- Incadrarea geografica -->
+        <h2 style="text-align: center;">Despre <b>Judetul Prahova</b></h2>
+        <div id="ph_incadrare_geografica">
+          <p style="text-indent: 2em;"> &#9; Situat in sudul Carpatilor Meridionali si in apropierea Carpatilor de Curbura, Judetul Prahova acopera o mare varietate de forme de relief, de la crestele impunatoare ale Bucegilor pana la campiile manoase din sudul judetului si este localizat la jumatatea distantei dintre Polul Nord si Ecuator, pe paralela 45 (cei ce au trecut pe DN 1 au observant desigur, acel monument din apropiere de Orasul Baicoi care marcheaza aceasta amplasare). </p>
+          <p style="text-indent: 2em;">Dezvoltarea moderna a judetului a inceput in secolul al XIX-lea datorita industriei petroliere (importante resurse de titei si gaze naturale, rafinarii si productie de anvelope, etc), fapt ce i-a adus si distrugeri majore in timpul celui de-al Doilea Razboi Mondial.</p>
+          <p style="text-indent: 2em;">Va lasam deci, pe dumneavoastra, sa alegeti din multitudinea de posibilitati de petrecere a timpului liber, in cadrul natural ce va satisfice nevoile de relaxare si in prezenta gazdelor ospitaliere care va ureaza <i>”Bun venit”</i>:</p>
+        </div>
+
+        <div>
+          <h5 id="button_despre_ploiesti" style="text-align: center;">Ploiesti - Resedinta de judet</h5>
+          <div class="despre_localitati notShow">
+            <div class="imagini_ploiesti">
+              <img src="Imagini/Prahova/Localitati/Ploiesti/IMG_Ploiesti_1.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Ploiesti/IMG_Ploiesti_2.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Ploiesti/IMG_Ploiesti_3.jpg" width="250px">
+              </div>
+            <p style="text-indent: 2em;">La aproximativ 60 de km nord de Bucuresti, in Campia Ploiestilor si langa confluenta Vaii Dambului cu cea a Teleajanului se afla localizat Municipiul Ploiesti, resedinta a judetului Prahova si recunoscut centru al industriei petroliere, un important nod feroviar (aici se intalnesc caile ferate catre Moldova, centrul si sudul tarii) si rutier (cca 50 km pana la Targoviste, 70 km pana la Buzau, 105 km pana la Brasov, etc), un oras cu o consistenta istorie si o importanta activitate culturala (aici a copilarit si scris I.L. Caragiale si au lucrat A. Bacalbasa, C.D. Gherea, etc).</p>
+            <p style="text-indent: 2em;">Centrul modern al orasului se inconjoara armonios cu cartiere mai mult sau mai putin periferice, caracterizate de o arhitectura interbelica sau chiar mai veche, dand astfel urbei un aer de targ istoric cu un “parfum” aristocratic.</p>
+            <p style="text-indent: 2em;">Din perioada medievala, “legenda vorbeste de un grup de sapte case, pitit intr-o poiana a Codrilor Vlasiei, subt un Mos Ploae…” (Mihail Sevastos, 1938, Monografia Orasului Ploiesti), pentru ca mai apoi, Mihai Viteazul sa instaleze aici o tabara militara de unde, in 1599, porneste sa realizeze prima unificare a Tarilor Romane. Deasemeni, prezenta lui Tudor Vladimirescu in 1813 aici si actiunile revolutionare din 1848 si 1870 au modelat istoria si evolutia asezarii.</p>
+            <p style="text-indent: 2em;">Bineinteles insa, dezvoltarea cea mai importanta a orasului a aparut odata cu infiintarea primelor rafinarii, cu construirea drumului spre si din Transilvania pe Valea Prahovei si a caii ferate.</p>
+            <p style="text-indent: 2em;">O multitudine de monumente, muzee, teatre si atractii turistice pentru toate gusturile va asteapta sa le vizitati, sa le descoperiti farmecul si sa va incante cu frumusetea lor asa cum veti afla mai detaliat in capitolul „ Obiective istorice si turistice,agrement”.</p>
+          
+          </div>
+        </div>
+
+        <div>
+          <h5 id="button_despre_brebu" style="text-align: center;">Brebu</h5>
+          <div class="despre_brebu notShow">
+            <div class="imagini_brebu">
+              <img src="Imagini/Prahova/Localitati/Brebu/IMG_Brebu_1.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Brebu/IMG_Brebu_2.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Brebu/IMG_Brebu_3.jpg" width="250px">
+              </div>
+            <p style="text-indent: 2em;">Urmand drumul serpuit catre Lacul Brebu (lac aparut prin scufundare, situat intr-o depresiune formata ca urmare a dizolvarii gipsului si a sarii) pe malul stang al Doftanei se ajunge in Comuna Brebu.</p>
+            <p style="text-indent: 2em;">“Brebu apare atestat in cronicile brasovene ale schimburilor comerciale cu diferite targuri si sate din Tara Romaneasca in anii 1529, 1530 si 1543. Potrivit documentelor scrise, acum 450 de ani negustorii din Brebu duceau marfuri la Brasov…” (site-ul official al Comunei Brebu, 2020).</p>
+            <p style="text-indent: 2em;">Posibil ca in trecut sa fi existat pe aceste meleaguri crescatori de “brebi” (castori), de unde sa fi provenit si numele localitatii.</p>
+            <p style="text-indent: 2em;">“Brebu este o comuna in judetul Prahova, situata la numai 5 km de Campina si  aproximativ 90 de km de Bucuresti, formata din satele Brebu Manastirei (resedinta), Brebu Megiesesc, Pietriceaua si Podu Cheii. Vatra comunei este un platou intins, de peste 10 km in mijlocul unei mari depresiuni de sub poalele muntilor Bucegi si Grohotis.</p>
+            <p style="text-indent: 2em;">Comuna Brebu este unul dintre cele mai importante obiective turistice de pe Valea Doftanei. Pe langa numeroasele peisaje de un farmec aparte, precum lacul si parcul Brebu, Cheile Doftanei si Barajul Paltinu, in satul Brebu Manastirei pot ﬁ vizitate cateva obiective turistice, si anume ansamblul arhitectural Matei Basarab, format din biserica ,,Sﬁntii Mihail si Gavril”, a carei pictura a fost refacuta de Sava Hentia intre 1901-1902, casa domneasca, ruinele chiliilor, turnul-clopotnita, dar si biserica de lemn din satul Pietriceaua.</p>
+            <p style="text-indent: 2em;">In functie de perioada din an in care ajungeti la noi va recomandam sa descoperiti traditiile locale:</p>
+            <p style="text-indent: 2em;">Iordanitul este un obicei local pe care brebeanul l-a mostenit si-l transmite din generatie in generatie, tinerilor, in ﬁecare an de Sf. loan, Ziua Localitatii care se sarbatoreste de Sf. Ilie, iar in ultimul weekend din august si octombrie prin produse de o mare varietate, prin calitate si inedit, in organizarea primariei se desfasoara Festivalul Dulcetii si Targul de Toamna, evenimente devenite atractie turistica.”</p>
+            <p style="text-align: right;">                                                                       <i>( lntocmit si redactat de Inspector Daria Craciun, Dr. Ing. Ungureanu Gheorghe Adrian, primar.2020).</i> </p>
+          </div>
+        </div>
+
+        <div>
+          <h5 id="button_despre_campina" style="text-align: center;">Campina</h5>
+          <div class="despre_campina notShow">
+            <div class="imagini_campina">
+              <img src="Imagini/Prahova/Localitati/Campina/IMG_Campina_1.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Campina/IMG_Campina_2.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Campina/IMG_Campina_3.jpg" width="250px">
+              </div>
+            <p style="text-indent: 2em;">“In punctul unde Campia Romana se apropie cel mai mult de munti, la intrarea intre dealurile subcarpatice, pe intinsa terasa de la confluenta raurilor Prahova si Doftana, se afla un oras linistit, curat si mai mereu insorit: Campina. Aflat la jumatatea distantei dintre capitala si Brasov, Campina a atras mereu prin calitatea vietii de aici, inca din perioada renasterii nationale, cand era o statiune balneo-climaterica apreciata de artisti si lumea buna a Vechiului Regat, cu mult inainte de aparitia Sinaiei. Dintre multele personalitati ce s-au bucurat de aerul curat al Campinei, stabilindu-se aici, se remarca un celebru careu de titani ai civilizatiei romanesti: Ion Heliade Radulescu, Constantin Istrati, Bogdan Petriceicu Hasdeu si Nicolae Grigorescu.</p>
+            <p style="text-indent: 2em;">Unicitatea asezarii, atestata documentar la 1503 (cand este mentionata si o ocupatie traditionala a locuitorilor ei: apicultura), este data de cele doua elemente care i-au dat identitate in devenirea ei: vama si petrolul. Faptul ca a fost timp de veacuri intregi sediul Vamii Prahovei, si dezvoltarea adusa de comertul vamal, au dus la transformarea in oras a Campinei, pe vremea unirii Principatelor.</p>
+            <p style="text-indent: 2em;">Al doilea element identitar, cel care a modernizat orasul, a fost exploatarea resursei locale ce a facut faimoasa Campina in intreaga lume la cumpana veacurilor XIX-XX: aurul negru. Efervescenta dezvoltarii economice generata de petrol a triplat in doar un deceniu populatia orasului, care ajunsese cel mai cosmopolit din Vechiul Regat, iar bunastarea ce a urmat a favorizat ridicarea nivelului intelectual, Campina bucurandu-se de o bogata viata culturala.</p>
+            <p style="text-indent: 2em;">Daruit atat de natura cat si de oameni, oraselul de cca 36.000 locuitori de la poarta vailor Prahovei si Doftanei are toate atu-urile petrecerii unei vacante de neuitat.”</p>
+            <p style="text-align: right;"><i>Carmen Gavan si Madalin Focsa, Centrul National de Informare si Promovare Turistica-Campina</i></p>
+          </div>
+        </div>
+
+        <div>
+          <h5 id="button_despre_cornu" style="text-align: center;">Cornu</h5>
+          <div class="despre_cornu notShow">
+            <div class="imagini_cornu">
+              <img src="Imagini/Prahova/Localitati/Cornu/IMG_Cornu_1.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Cornu/IMG_Cornu_2.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Cornu/IMG_Cornu_3.jpg" width="250px">
+              </div>
+            <p style="text-indent: 2em;">"Pentru toti cei ce purced spre Valea Prahovei, Comuna Cornu reprezinta o poarta de "bun venit" in aceasta zona mirifica pe care bunul Dumnezeu ne-a incredintat a o pretui si respecta la adevarata sa valoare. Daca statiunile din jurul nostru ofera aglomeratie turistica si modalitati de petrecere a timpului liber destinate in principal tineretului, comuna noastra aduce liniste, ospitalitate, curatenie, bun gust si clipe de relaxare tuturor celor ce aleg sa ne treaca pragul. Nu ducem lipsa de pensiuni, centre de tratament, restaurante si privelisti de neuitat. Totodata, pretuim istoria comunei, inaltand Monumentul Eroilor Neamului, dar si expunand fragmente din trecutul nostru in Muzeul Satesc si Muzeul Hartilor. In istoria monumentelor istorice, vazuta ca si simbol al comunei, se regaseste si Biserica cu hramul "Inaltarea Domnului" din satul Cornu de Sus.</p>
+            <p style="text-indent: 2em;">Asadar, va asteptam sa va bucurati de recreerea pe care cu prisosinta o meritati!"</p>
+            <p style="text-align: right;"><i>Primarul Comunei Cornu, Nanu Cornel</i></p>
+          </div>
+        </div>
+
+        <div>
+          <h5 id="button_despre_poianacampina" style="text-align: center;">Poiana Campina</h5>
+          <div class="despre_poianacampina notShow">
+            <div class="imagini_poianacampina">
+              <img src="Imagini/Prahova/Localitati/Poiana Campina/IMG_poianacampina_1.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Poiana Campina/IMG_poianacampina_2.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Poiana Campina/IMG_poianacampina_3.jpg" width="250px">
+              </div>
+            <p style="text-indent: 2em;">Gara Campina este amplasata la marginea orasului, in comuna infratita de timp si destin, Poiana Campina.</p>
+            <p style="text-indent: 2em;">“Localitatea este mentionata, pentru prima data, sub numele dePoiana Sarii, intr-un hrisov din 27 mai 1510, semnat de domnitorul Vlad Voevod. A fost numita apoi Poiana de Prahova si, din 1930, Poiana de Campina…</p>
+            <p style="text-indent: 2em;"> Din cercetarile geologice intreprinse, rezulta ca localitatea Poiana Campina se afla pe un munte de sare, pe care-l intalnimin intreaga zona: Provitele, Draganeasa, Campina, Telrga, Bustenari, Baicoi, Filipestii de Padure, Moreni,etc…”( ION COSMOIU- POIANA CAMPINA, Pagini de monografie, 2004).</p>
+            <p style="text-indent: 2em;">Ctitorie cantacuzina, Manastirea Poiana (actualmente Biserica Adormirii Maicii Domnului) si-a pus amprenta asupra  vietii cotidiene a locuitorilor dar, mai ales, asupra procesului de invatamant “…o data cu darea in folosinta a Manastirii Poiana, aceasta devine un nou si mare izvor de cultura…” ( ION COSMOIU-POIANA CAMPINA- Pagini de monografie, 2004 ).</p>
+            <p style="text-indent: 2em;">Deasemenea, apele minerale florurosodice concentrate, bicarbonatate, sulfatate si hipertone (actualmente exploatate de catre Centrul Medical Sanconfind) au constituit un atu in dezvoltarea economica a regiunii.</p>
+            <p style="text-indent: 2em;"> Candva localitate riverana drumului ce lega Ploiestiul de Valea Prahovei ( inaintea construirii DN 1 traseul spre Sinaia trecea prin Campina, Poiana Campina, Breaza, Comarnic ) aceasta pitoreasca comuna va asteapta, strajuita de dealuri impadurite si de susurul apelor Prahovei, sa-I descoperiti frumusetea naturala si a va bucurati de clima echilibrata, in drumetii la pas ori cu bicicleta in peisajul idilic.</p>
+          </div>
+        </div>
+
+        <div>
+          <h5 id="button_despre_telega" style="text-align: center;">Telega</h5>
+          <div class="despre_telega notShow">
+            <div class="imagini_telega">
+              <img src="Imagini/Prahova/Localitati/Telega/IMG_Telega_1.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Telega/IMG_Telega_2.jpg" width="250px">
+              <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Telega/IMG_Telega_3.jpg" width="250px">
+              </div>
+            <p style="text-indent: 2em;">Comuna amplasata in apropierea izvoarelor Mislei, la poalele Dealului Ciobu se evidentiaza prin prezenta lacurilor sarate pe locurile unor vechi ocne, bogate in ape minerale cloruro-sodice concentrate si namol sapropelic ceea ce le-a recomandat ca “Baile Telega”.</p>
+            <p style="text-indent: 2em;">Cei ce au strabatut epoca comunista isi pot aminti desigur de Inchisoarea Doftana, aflata si ea in aceasta zona.</p>
+            <p style="text-indent: 2em;">Dar cel mai important fapt este peisajul de vis, alcatuit din dealuri molcome, desprinse parca din povestile copilariei. </p>
+            <p style="text-indent: 2em;">O plimbare “la pas” pe aceste culmi unduioase, mangaiate doar de linistea profunda si aproape ireala devine, cu siguranta, o terapie antistress binevenita si binefacatoare.</p>
+          </div>
+        </div>
+
+        <div>
+          <h5 id="button_despre_valeadoftanei" style="text-align: center;">Valea Doftanei</h5>
+          <div class="despre_valeadoftanei notShow">
+            <div class="imagini_valeadoftanei">
+            <img src="Imagini/Prahova/Localitati/Valea Doftanei/IMG_VD_1.jpg" width="250px">
+            <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Valea Doftanei/IMG_VD_2.jpg" width="250px">
+            <img style="margin-left: 0.75em;" src="Imagini/Prahova/Localitati/Valea Doftanei/IMG_VD_3.jpg" width="250px">
+            </div>
+            <p style="text-indent: 2em;">Parasind DN 1 la Campina si luand calea sinuoasa de-a lungul raului Doftana, prin Cheile Doftanei si pe malul Lacului de acumulare Paltinu se ajunge in Comuna Valea Doftanei “amplasata intr-un cadru natural pitoresc, cu multe valente turistice si lipsit de surse de poluare si degradare a mediului.</p>
+            <p style="text-indent: 2em;">Ea se afla situata in partea nordica a judetului Prahova, intre vaile Prahova si Teleajen. Relieful muntos al acestei localitati este mai accentuat catre nord, unde este limitrofa cu judetul Brasov. Acolo, spre obarsia Doftanei se inalta masive muntoase ca: Orjogoaia, Radela, Cucioaia, Zanoaga, Baiu Mare, Baiu Mic, Unghia Mare si Unghia Mica. Privit din departare, Muntele Unghia Mare, cu liniile lui geometrice, seamana cu o piramida egipteana, implantata parca dinadins aici in framantatul peisaj carpatin” (site-ul oficial al Primariei Valea Doftanei, 2020).</p>
+            <p style="text-indent: 2em;">“Este atestata documentar in prima jumatate a secolului al XVI lea, in timpul domniei lui Radu Paise (1535-1545) cu satele Tesila si Traisteni. Prin hrisoave domnesti, acele localitati devin dependente de manastirile Margineni si Sinaia” (site-ul oficial al Primariei Valea Doftanei).</p>
+            <p style="text-indent: 2em;">Traditiile populare sunt la ele acasa in Valea Doftanei. De la ocupatii cotidiene traditionale ca prelucrarea lemnului, cresterea animalelor si prelucrarea produselor (Cine nu a auzit de “Festivalul Cascavelei” de aici?), la agroturism si preocupari artistice (artizanat, mestesuguri, port si cantec popular) atestate pe deplin si de Muzeul de Etnografie si Folclor, deschis in cadrul Caminului Cultural Traisteni, si de Muzeul de Arte Plastice din cadrul Caminului Cultural Tesila.</p>
+          </div>
+        </div>
+
+
+
+        <br><br><br>
+        <a href="#">
+          <i class="fas fa-arrow-circle-up buton_scroll" id="buton_scroll"></i
+        ></a>
+      
+    </div>
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: "map",
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM(),
+          }),
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([25.90, 45.15]),
+          zoom: 9.8,
+        }),
+      });
+    </script>
+    <script>
+      document
+        .getElementById("button_obiective")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("lista-obiective")[0]
+            .classList.toggle("notShow");
+        });
+      document
+        .getElementById("button_cazare")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("lista-cazare")[0]
+            .classList.toggle("notShow");
+        });
+      document
+        .getElementById("button_service")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("lista-service")[0]
+            .classList.toggle("notShow");
+        });
+      document
+        .getElementById("button_sanatate")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("lista-sanatate")[0]
+            .classList.toggle("notShow");
+        });
+        document
+        .getElementById("button_despre_ploiesti")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("despre_localitati")[0]
+            .classList.toggle("notShow");
+        });
+        document
+        .getElementById("button_despre_brebu")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("despre_brebu")[0]
+            .classList.toggle("notShow");
+        });
+        document
+        .getElementById("button_despre_campina")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("despre_campina")[0]
+            .classList.toggle("notShow");
+        });
+        document
+        .getElementById("button_despre_cornu")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("despre_cornu")[0]
+            .classList.toggle("notShow");
+        });
+        document
+        .getElementById("button_despre_poianacampina")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("despre_poianacampina")[0]
+            .classList.toggle("notShow");
+        });
+        document
+        .getElementById("button_despre_telega")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("despre_telega")[0]
+            .classList.toggle("notShow");
+        });
+        document
+        .getElementById("button_despre_valeadoftanei")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("despre_valeadoftanei")[0]
+            .classList.toggle("notShow");
+        });
+    </script>
+  </body>
+</html>

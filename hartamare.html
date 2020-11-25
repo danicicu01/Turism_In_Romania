@@ -1,80 +1,777 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css"
-			type="text/css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-			crossorigin="anonymous"
-		></script>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
 
-		<style>
-			.overlay {
-				color: white;
-			}
+    <style>
+      .overlay {
+        color: white;
+      }
 
-			.overlay > a {
-				font-weight: bolder;
-				font-size: small;
-				padding: 0.1px;
-			}
+      .overlay > a {
+        font-weight: bolder;
+        font-size: small;
+        padding: 0.1px;
+      }
 
-			.map {
-				height: 100vh;
-				width: 102%;
-			}
-		</style>
-		<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
-		<title>TURIST IN ROMANIA</title>
-	</head>
+      .map {
+        height: 100vh;
+        width: 102%;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+    <title>Turism in Romania</title>
+  </head>
 
-	<body>
-		<div id="campina" class="overlay">
-			<a class="btn btn-secondary btn-sm" href="valeadoftanei.html"
-				>Câmpina și<br />Valea Doftanei</a
-			>
-		</div>
-		<div id="map" class="map"></div>
-		<script type="text/javascript">
-			var map = new ol.Map({
-				target: "map",
-				layers: [
-					new ol.layer.Tile({
-						source: new ol.source.OSM(),
-					}),
-				],
-				view: new ol.View({
-					center: ol.proj.fromLonLat([25, 45.9432]),
-					zoom: 7,
-				}),
-			});
-			var campina = new ol.Overlay({
-				element: document.getElementById("campina"),
-				offset: [-5, -5],
-			});
-			campina.setPosition(ol.proj.fromLonLat([25.73, 45.237]));
-			campina.positioning = "center-center";
-			map.addOverlay(campina);
-		</script>
-	</body>
+  <body>
+    <!--HARTA-->
+    <div id="map" class="map">
+      <script type="text/javascript">
+        map = new ol.Map({
+          target: "map",
+          layers: [
+            new ol.layer.Tile({
+              source: new ol.source.OSM(),
+            }),
+          ],
+          view: new ol.View({
+            center: ol.proj.fromLonLat([25, 45.9432]),
+            zoom: 7.1,
+          }),
+        });</script></div>
+
+
+
+
+    <!--Alba-->
+    <div id="alba" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Alba
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var alba = new ol.Overlay({
+        element: document.getElementById("alba"),
+        offset: [-5, -5],
+      });
+      alba.setPosition(ol.proj.fromLonLat([23.3556, 46.1559]));
+      alba.positioning = "center-center";
+      map.addOverlay(alba);
+    </script>
+
+    <!--Arad-->
+    <div id="arad" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Arad
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var arad = new ol.Overlay({
+        element: document.getElementById("arad"),
+        offset: [-5, -5],
+      });
+      arad.setPosition(ol.proj.fromLonLat([21.6598, 46.4284]));
+      arad.positioning = "center-center";
+      map.addOverlay(arad);
+    </script>
+
+    <!--Arges-->
+    <div id="arges" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Arges
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var arges = new ol.Overlay({
+        element: document.getElementById("arges"),
+        offset: [-5, -5],
+      });
+      arges.setPosition(ol.proj.fromLonLat([24.6143, 45.0723]));
+      arges.positioning = "center-center";
+      map.addOverlay(arges);
+    </script>
+
+    <!--Bacau-->
+    <div id="bacau" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Bacau
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var bacau = new ol.Overlay({
+        element: document.getElementById("bacau"),
+        offset: [-5, -5],
+      });
+      bacau.setPosition(ol.proj.fromLonLat([26.6624, 46.5258]));
+      bacau.positioning = "center-center";
+      map.addOverlay(bacau);
+    </script>
+
+    <!--Bihor-->
+    <div id="bihor" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Bihor
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var bihor = new ol.Overlay({
+        element: document.getElementById("bihor"),
+        offset: [-5, -5],
+      });
+      bihor.setPosition(ol.proj.fromLonLat([22.1723, 47.0158]));
+      bihor.positioning = "center-center";
+      map.addOverlay(bihor);
+    </script>
+
+    <!--Bistrita-Nasaud-->
+    <div id="bistritanasaud" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Bistrita-Nasaud
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var bistritanasaud = new ol.Overlay({
+        element: document.getElementById("bistritanasaud"),
+        offset: [-5, -5],
+      });
+      bistritanasaud.setPosition(ol.proj.fromLonLat([24.2323, 47.2486]));
+      bistritanasaud.positioning = "center-center";
+      map.addOverlay(bistritanasaud);
+    </script>
+
+     <!--Botosani-->
+     <div id="botosani" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Botosani
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var botosani = new ol.Overlay({
+        element: document.getElementById("botosani"),
+        offset: [-5, -5],
+      });
+      botosani.setPosition(ol.proj.fromLonLat([26.7592, 47.8924]));
+      botosani.positioning = "center-center";
+      map.addOverlay(botosani);
+    </script>
+
+    <!--Brasov-->
+    <div id="brasov" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Brasov
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var brasov = new ol.Overlay({
+        element: document.getElementById("brasov"),
+        offset: [-5, -5],
+      });
+      brasov.setPosition(ol.proj.fromLonLat([25.2226, 45.7782]));
+      brasov.positioning = "center-center";
+      map.addOverlay(brasov);
+    </script>
+
+    <!--Braila-->
+    <div id="braila" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Braila
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var braila = new ol.Overlay({
+        element: document.getElementById("braila"),
+        offset: [-5, -5],
+      });
+      braila.setPosition(ol.proj.fromLonLat([27.7017, 45.1612]));
+      braila.positioning = "center-center";
+      map.addOverlay(braila);
+    </script>
+
+    <!--Buzau-->
+    <div id="buzau" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Buzau
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var buzau = new ol.Overlay({
+        element: document.getElementById("buzau"),
+        offset: [-5, -5],
+      });
+      buzau.setPosition(ol.proj.fromLonLat([26.7108, 45.3351]));
+      buzau.positioning = "center-center";
+      map.addOverlay(buzau);
+    </script>
+
+    <!--Caras-Severin-->
+    <div id="carasseverin" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Caras-Severin
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var carasseverin = new ol.Overlay({
+        element: document.getElementById("carasseverin"),
+        offset: [-5, -5],
+      });
+      carasseverin.setPosition(ol.proj.fromLonLat([21.7541, 45.1140]));
+      carasseverin.positioning = "center-center";
+      map.addOverlay(carasseverin);
+    </script>
+
+    <!--Calarasi-->
+    <div id="calarasi" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Calarasi
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var calarasi = new ol.Overlay({
+        element: document.getElementById("calarasi"),
+        offset: [-5, -5],
+      });
+      calarasi.setPosition(ol.proj.fromLonLat([26.7549, 44.3659]));
+      calarasi.positioning = "center-center";
+      map.addOverlay(calarasi);
+    </script>
+
+    <!--Cluj-->
+    <div id="cluj" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Cluj
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var cluj = new ol.Overlay({
+        element: document.getElementById("cluj"),
+        offset: [-5, -5],
+      });
+      cluj.setPosition(ol.proj.fromLonLat([23.6121, 46.9]));
+      cluj.positioning = "center-center";
+      map.addOverlay(cluj);
+    </script>
+
+    <!--Constanta-->
+    <div id="constanta" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Constanta
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var constanta = new ol.Overlay({
+        element: document.getElementById("constanta"),
+        offset: [-5, -5],
+      });
+      constanta.setPosition(ol.proj.fromLonLat([28.38, 44.4]));
+      constanta.positioning = "center-center";
+      map.addOverlay(constanta);
+    </script>
+
+    <!--Covasna-->
+    <div id="covasna" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Covasna
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var covasna = new ol.Overlay({
+        element: document.getElementById("covasna"),
+        offset: [-5, -5],
+      });
+      covasna.setPosition(ol.proj.fromLonLat([25.8919, 45.9426]));
+      covasna.positioning = "center-center";
+      map.addOverlay(covasna);
+    </script>
+
+     <!--Dambovita-->
+     <div id="dambovita" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Dambovita
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var dambovita = new ol.Overlay({
+        element: document.getElementById("dambovita"),
+        offset: [-5, -5],
+      });
+      dambovita.setPosition(ol.proj.fromLonLat([25.28, 45]));
+      dambovita.positioning = "center-center";
+      map.addOverlay(dambovita);
+    </script>
+
+    <!--Dolj-->
+    <div id="dolj" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Dolj
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var dolj = new ol.Overlay({
+        element: document.getElementById("dolj"),
+        offset: [-5, -5],
+      });
+      dolj.setPosition(ol.proj.fromLonLat([23.6325, 44.1623]));
+      dolj.positioning = "center-center";
+      map.addOverlay(dolj);
+    </script>
+
+    <!--Galati-->
+    <div id="galati" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Galati
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var galati = new ol.Overlay({
+        element: document.getElementById("galati"),
+        offset: [-5, -5],
+      });
+      galati.setPosition(ol.proj.fromLonLat([27.6052, 45.7801]));
+      galati.positioning = "center-center";
+      map.addOverlay(galati);
+    </script>
+
+    <!--Giurgiu-->
+    <div id="giurgiu" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Giurgiu
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var giurgiu = new ol.Overlay({
+        element: document.getElementById("giurgiu"),
+        offset: [-5, -5],
+      });
+      giurgiu.setPosition(ol.proj.fromLonLat([25.9408, 44.1742]));
+      giurgiu.positioning = "center-center";
+      map.addOverlay(giurgiu);
+    </script>
+
+    <!--Gorj-->
+    <div id="gorj" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Gorj
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var gorj = new ol.Overlay({
+        element: document.getElementById("gorj"),
+        offset: [-5, -5],
+      });
+      gorj.setPosition(ol.proj.fromLonLat([23.2427, 44.9486]));
+      gorj.positioning = "center-center";
+      map.addOverlay(gorj);
+    </script>
+
+    <!--Harghita-->
+    <div id="harghita" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Harghita
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var harghita = new ol.Overlay({
+        element: document.getElementById("harghita"),
+        offset: [-5, -5],
+      });
+      harghita.setPosition(ol.proj.fromLonLat([25.4457, 46.6929]));
+      harghita.positioning = "center-center";
+      map.addOverlay(harghita);
+    </script>
+
+    <!--Hunedoara-->
+    <div id="hunedoara" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Hunedoara
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var hunedoara = new ol.Overlay({
+        element: document.getElementById("hunedoara"),
+        offset: [-5, -5],
+      });
+      hunedoara.setPosition(ol.proj.fromLonLat([22.7976, 45.7936]));
+      hunedoara.positioning = "center-center";
+      map.addOverlay(hunedoara);
+    </script>
+
+    <!--Ialomita-->
+    <div id="ialomita" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Ialomita
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var ialomita = new ol.Overlay({
+        element: document.getElementById("ialomita"),
+        offset: [-5, -5],
+      });
+      ialomita.setPosition(ol.proj.fromLonLat([27, 44.7031]));
+      ialomita.positioning = "center-center";
+      map.addOverlay(ialomita);
+    </script>
+
+    <!--Iasi-->
+    <div id="iasi" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Iasi
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var iasi = new ol.Overlay({
+        element: document.getElementById("iasi"),
+        offset: [-5, -5],
+      });
+      iasi.setPosition(ol.proj.fromLonLat([27.2186, 47.2680]));
+      iasi.positioning = "center-center";
+      map.addOverlay(iasi);
+    </script>
+
+    <!--Ilfov-->
+    <div id="ilfov" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Ilfov
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var ilfov = new ol.Overlay({
+        element: document.getElementById("ilfov"),
+        offset: [-5, -5],
+      });
+      ilfov.setPosition(ol.proj.fromLonLat([26.1325, 44.5955]));
+      ilfov.positioning = "center-center";
+      map.addOverlay(ilfov);
+    </script>
+
+    <!--Maramures-->
+    <div id="maramures" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Maramures
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var maramures = new ol.Overlay({
+        element: document.getElementById("maramures"),
+        offset: [-5, -5],
+      });
+      maramures.setPosition(ol.proj.fromLonLat([23.7456, 47.7938]));
+      maramures.positioning = "center-center";
+      map.addOverlay(maramures);
+    </script>
+
+    <!--Mehedinti-->
+    <div id="mehedinti" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Mehedinti
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var mehedinti = new ol.Overlay({
+        element: document.getElementById("mehedinti"),
+        offset: [-5, -5],
+      });
+      mehedinti.setPosition(ol.proj.fromLonLat([22.9044, 44.5515]));
+      mehedinti.positioning = "center-center";
+      map.addOverlay(mehedinti);
+    </script>
+
+    <!--Mures-->
+    <div id="mures" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Mures
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var mures = new ol.Overlay({
+        element: document.getElementById("mures"),
+        offset: [-5, -5],
+      });
+      mures.setPosition(ol.proj.fromLonLat([24.4723, 46.6570]));
+      mures.positioning = "center-center";
+      map.addOverlay(mures);
+    </script>
+
+    <!--Neamt-->
+    <div id="neamt" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Neamt
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var neamt = new ol.Overlay({
+        element: document.getElementById("neamt"),
+        offset: [-5, -5],
+      });
+      neamt.setPosition(ol.proj.fromLonLat([26.2, 47.05]));
+      neamt.positioning = "center-center";
+      map.addOverlay(neamt);
+    </script>
+
+    <!--Olt-->
+    <div id="olt" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Olt
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var olt = new ol.Overlay({
+        element: document.getElementById("olt"),
+        offset: [-5, -5],
+      });
+      olt.setPosition(ol.proj.fromLonLat([24.3023, 44.4508]));
+      olt.positioning = "center-center";
+      map.addOverlay(olt);
+    </script>
+
+    <!--Prahova-->
+    <div id="prahova" class="overlay">
+      <a class="btn btn-danger btn-sm" href="prahova.html"
+        >Judetul<br />Prahova</a
+      >
+    </div><script>
+    
+        var prahova = new ol.Overlay({
+          element: document.getElementById("prahova"),
+          offset: [-5, -5],
+        });
+        prahova.setPosition(ol.proj.fromLonLat([26.01, 45.17]));
+        prahova.positioning = "center-center";
+        map.addOverlay(prahova);
+      </script>
+    </div>
+
+    <!--Satu Mare-->
+    <div id="satumare" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Satu Mare</a
+      >
+    </div><script>
+    
+        var satumare = new ol.Overlay({
+          element: document.getElementById("satumare"),
+          offset: [-5, -5],
+        });
+        satumare.setPosition(ol.proj.fromLonLat([22.423, 47.7658]));
+        satumare.positioning = "center-center";
+        map.addOverlay(satumare);
+      </script>
+    </div>
+
+    <!--Salaj-->
+    <div id="salaj" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Salaj</a
+      >
+    </div><script>
+    
+        var salaj = new ol.Overlay({
+          element: document.getElementById("salaj"),
+          offset: [-5, -5],
+        });
+        salaj.setPosition(ol.proj.fromLonLat([23, 47.2091]));
+        salaj.positioning = "center-center";
+        map.addOverlay(salaj);
+      </script>
+    </div>
+
+    <!--Sibiu-->
+    <div id="sibiu" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Sibiu</a
+      >
+    </div><script>
+    
+        var sibiu = new ol.Overlay({
+          element: document.getElementById("sibiu"),
+          offset: [-5, -5],
+        });
+        sibiu.setPosition(ol.proj.fromLonLat([24.1055, 45.8069]));
+        sibiu.positioning = "center-center";
+        map.addOverlay(sibiu);
+      </script>
+    </div>
+
+     <!--Suceava-->
+     <div id="suceava" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Suceava</a
+      >
+    </div><script>
+    
+        var suceava = new ol.Overlay({
+          element: document.getElementById("suceava"),
+          offset: [-5, -5],
+        });
+        suceava.setPosition(ol.proj.fromLonLat([25.6311, 47.6406]));
+        suceava.positioning = "center-center";
+        map.addOverlay(suceava);
+      </script>
+    </div>
+
+    <!--Teleorman-->
+    <div id="teleorman" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Teleorman</a
+      >
+    </div><script>
+    
+        var teleorman = new ol.Overlay({
+          element: document.getElementById("teleorman"),
+          offset: [-5, -5],
+        });
+        teleorman.setPosition(ol.proj.fromLonLat([25, 44.1560]));
+        teleorman.positioning = "center-center";
+        map.addOverlay(teleorman);
+      </script>
+    </div>
+
+    <!--Timis-->
+    <div id="timis" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Timis</a
+      >
+    </div><script>
+    
+        var timis = new ol.Overlay({
+          element: document.getElementById("timis"),
+          offset: [-5, -5],
+        });
+        timis.setPosition(ol.proj.fromLonLat([21, 45.8139]));
+        timis.positioning = "center-center";
+        map.addOverlay(timis);
+      </script>
+    </div>
+
+    <!--Tulcea-->
+    <div id="tulcea" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Tulcea</a
+      >
+    </div><script>
+    
+        var tulcea = new ol.Overlay({
+          element: document.getElementById("tulcea"),
+          offset: [-5, -5],
+        });
+        tulcea.setPosition(ol.proj.fromLonLat([28.65, 45.0451]));
+        tulcea.positioning = "center-center";
+        map.addOverlay(tulcea);
+      </script>
+    </div>
+
+    <!--Vaslui-->
+    <div id="vaslui" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Vaslui</a
+      >
+    </div><script>
+    
+        var vaslui = new ol.Overlay({
+          element: document.getElementById("vaslui"),
+          offset: [-5, -5],
+        });
+        vaslui.setPosition(ol.proj.fromLonLat([27.6398, 46.6631]));
+        vaslui.positioning = "center-center";
+        map.addOverlay(vaslui);
+      </script>
+    </div>
+
+    <!--Valcea-->
+    <div id="valcea" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Valcea</a
+      >
+    </div><script>
+    
+        var valcea = new ol.Overlay({
+          element: document.getElementById("valcea"),
+          offset: [-5, -5],
+        });
+        valcea.setPosition(ol.proj.fromLonLat([24, 45.0798]));
+        valcea.positioning = "center-center";
+        map.addOverlay(valcea);
+      </script>
+    </div>
+
+    <!--Vrancea-->
+    <div id="vrancea" class="overlay">
+      <a class="btn btn-secondary btn-sm" onclick="eroarejudet()">
+        Judetul<br />Vrancea</a
+      >
+    </div><script>
+    
+        var vrancea = new ol.Overlay({
+          element: document.getElementById("vrancea"),
+          offset: [-5, -5],
+        });
+        vrancea.setPosition(ol.proj.fromLonLat([26.8, 45.9035]));
+        vrancea.positioning = "center-center";
+        map.addOverlay(vrancea);
+      </script>
+    </div>
+
+    <!--FUNCTIA EROARE-->
+    <script>
+      function eroarejudet() {
+        alert(
+          "Ne pare rau, nu am acoperit inca aceasta zona...Va recomandam cu caldura judetul Prahova!"
+        );
+      }
+    </script>
+  </body>
 </html>
