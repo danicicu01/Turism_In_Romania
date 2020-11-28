@@ -19,7 +19,7 @@ a:hover {
   color: rgba(0, 0, 0, 0.8);
 }
 .item-container {
-  height: 25vh;
+  height: 19vh;
   display: flex;
   box-shadow: 3px 5px 1px #ccc;
   border-radius: 20px;

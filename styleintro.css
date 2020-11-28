@@ -74,42 +74,52 @@ h1 {
 h3 {
   color: #000000;
 }
-@media only screen and (max-width:1300px){
-  body{
-    width: auto;
-  }
 
+footer {
+  margin-top: 22.7rem;
 }
 
-@media only screen and (max-width:600px){
-  .box{
+@media only screen and (max-width: 1300px) {
+  body {
     width: auto;
   }
-  .h1, h1{
+  footer {
+    margin-top: 18rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .box {
+    width: auto;
+  }
+  .h1,
+  h1 {
     font-size: 1rem;
   }
-  .h3, h3{
-    font-size: 0.80rem;
+  .h3,
+  h3 {
+    font-size: 0.8rem;
   }
-  .h5, h5{
-    font-size: 0.70rem;
+  .h5,
+  h5 {
+    font-size: 0.7rem;
   }
-  .btn{
+  .btn {
     font-size: 0.55rem;
   }
-  footer{
+  footer {
     width: auto;
   }
-  .mijloace{
+  .mijloace {
     font-size: 0.8rem;
   }
-  .mail{
+  .mail {
     font-size: 0.8rem;
   }
-  .tlf{
+  .tlf {
     font-size: 0.8rem;
   }
-  .saapari{
+  .saapari {
     font-size: 1rem;
   }
 }
