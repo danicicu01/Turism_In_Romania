@@ -83,6 +83,15 @@ div > ul {
   text-decoration: underline;
   color: rgba(0, 0, 0, 0.8);
 }
+
+#button_despre_breaza {
+  color: #d31c1c;
+}
+#button_despre_breaza:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
+}
 #button_despre_brebu {
   color: #d31c1c;
 }
@@ -149,6 +158,12 @@ p#text_descriptiv > p {
 }
 
 .imagini_ploiesti {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+.imagini_breaza {
   width: 100%;
   text-align: center;
   display: inline-block;
